@@ -11,3 +11,5 @@ But it would also be useful if you find a solution to an issue just to upload th
 Ideally these guides will describe the intended purpose of the code and the desired output. If the file sizes are small enough these can also be included. 
 
 **To get upload access - please email:** phenotypic-screening@qmul.ac.uk 
+
+Alternatively scripts can be uploaded to the "User Scripts" folder in the Teams Hub and we will update the GitHub
