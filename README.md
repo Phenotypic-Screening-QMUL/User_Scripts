@@ -10,4 +10,4 @@ But it would also be useful if you find a solution to an issue just to upload th
 
 Ideally these guides will describe the intended purpose of the code and the desired output. If the file sizes are small enough these can also be included. 
 
-**DO NOT edit others code but rather branch to your own GitHub or download the raw files**
+**To get upload access - please ask email :phenotypic-screening@qmul.ac.uk **
