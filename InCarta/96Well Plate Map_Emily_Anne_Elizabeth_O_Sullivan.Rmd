@@ -1,0 +1,54 @@
+---
+title: "96-Well Plate Map"
+output: html_notebook
+---
+
+## Install Packages
+
+```{r}
+install.packages("platetools")
+library(platetools)
+
+install.packages("data.table")
+library(data.table)
+
+install.packages("dplyr")
+install.packages("stringr")
+library(dplyr)
+library(stringr)
+```
+
+## Import Data Set
+
+```{r}
+
+Data <- fread("468 DAPI_2020-Nov-26-13-04-54_summary_by_well.csv")
+
+```
+
+
+## Add column to convert well label 
+```{r}
+Data <- Data %>%
+mutate(
+    `NEW WELL LABEL` = str_replace(`WELL LABEL`, " - ", ""),                  # Remove space and hyphen
+    `NEW WELL LABEL` = if_else(
+      str_length(str_extract(`NEW WELL LABEL`, "\\d+$")) == 1,                # Check if the number part is a single digit
+      str_replace(`NEW WELL LABEL`, "(\\d)$", "0\\1"),                        # Zero pad single digits
+      `NEW WELL LABEL`                                                        # Keep as is for double digits
+    )
+  )
+
+```
+
+## For Heatmap
+
+```{r}
+
+raw_map(data = Data$`Nuclei Nuclei Count wv1`,
+        well = Data$`NEW WELL LABEL`,
+        plate = 96)
+
+```
+
+

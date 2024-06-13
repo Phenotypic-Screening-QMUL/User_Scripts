@@ -1,0 +1,37 @@
+---
+title: "3D Plots"
+output: html_notebook
+---
+
+
+## Install Packages
+```{r}
+
+install.packages("rgl")
+library(rgl)
+
+install.packages("plyr")
+library(plyr)
+
+
+```
+## Load Nuclei Data Frame
+
+```{r}
+
+Nuclei <- read.csv("Nuclei_ObjectData.csv")
+
+Nuclei_3D <- plot3d( 
+             x=Nuclei$Nuclei_Centroid.X_Average, y=Nuclei$Nuclei_Centroid.Y_Average, z=Nuclei$Nuclei_Centroid.Z_Average, 
+            type = 's', 
+            col = 'royalblue1',
+            radius = Nuclei$Nuclei_Diameter_Average,
+             xlab="X", ylab="Y", zlab="Z")
+             
+ htmlwidgets::saveWidget(rglwidget(width = 520, height = 520), 
+                        file = "3dscatter_nuclei.html",
+                        libdir = "libs",
+                        selfcontained = FALSE
+                        )           
+```
+
